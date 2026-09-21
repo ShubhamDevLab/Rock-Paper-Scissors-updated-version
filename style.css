@@ -302,7 +302,6 @@ body {
         padding: 5px 5px;
         min-height: 100vh;
         max-height: 100vh;
-        overflow: hidden;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -361,28 +360,16 @@ body {
     }
     
     .move img {
-        width: 55px !important;
-        height: 55px !important;
+        width: 60px !important;
+        height: 60px !important;
     }
 
-       .RestButton {
-        padding: 8px 20px !important; /* Made the reset button slightly thinner vertically */
-        font-size: 14px !important;
+    .Rest {
+        margin: 5px 0 !important;
     }
 
-    /* --- OPTIMIZED FOOTER: Safeguards browser bar overlap --- */
     .game-footer {
-        margin-top: auto !important; /* Pushes footer smoothly down to the edge */
-        padding: 5px 5px 15px 5px !important; /* Added 15px bottom padding to clear mobile UI bars */
-        gap: 6px !important;
-    }
-    
-    .footer-links {
-        gap: 12px !important; /* Tighter distribution of social links */
-    }
-    
-    .social-link {
-        padding: 4px 10px !important; /* Slimmer layout for social pills */
-        font-size: 0.8rem !important;
+        margin-top: 5px !important;
+        padding: 5px 5px !important;
     }
 }
