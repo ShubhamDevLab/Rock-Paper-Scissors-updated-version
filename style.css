@@ -193,3 +193,63 @@ body {
     88%      { transform: scale(1.15) translateY(-25px) rotate(-10deg); }
     100%     { transform: scale(1) translateY(0) rotate(-20deg); }
 }
+/* --- Mobile View Enhancements --- */
+@media (max-width: 600px) {
+    /* 1. Scales up the primary headline text size */
+    .header {
+        font-size: xx-large;
+        font-weight: 800;
+        padding: 25px 10px;
+        margin-bottom: 20px;
+    }
+
+    /* 2. Forces the scorecard font to be bold and pronounced */
+    .status {
+        font-size: 1.3rem;
+        font-weight: 800;
+        margin-bottom: 25px;
+    }
+
+    /* 3. Stretches the green arena container to fill the screen width */
+    .game-container {
+        max-width: 100%;
+        width: 92%; /* Adds a small neat gap on the left and right edges */
+        padding: 6% 4%;
+        border-radius: 20px; /* Softer, more modern rounded corners */
+        gap: 30px;
+    }
+
+    /* 4. Scales up the 'It's a draw / You win' text */
+    .Result-label {
+        font-size: 2rem;
+    }
+
+    /* 5. Widens the gap between the hands display and scales up the hand circle graphics */
+    .hands-display {
+        gap: 50px;
+    }
+
+    /* Target your circular hand elements to look bigger on mobile screens */
+    #myMove img, #compMove img {
+        width: 130px !important;  /* Enlarges the hand emojis to match the screenshot layout */
+        height: 130px !important;
+    }
+
+    /* 6. Makes the clickable choice buttons larger and easier to tap with fingers */
+    .move {
+        padding: 15px;
+    }
+    
+    .move img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    /* 7. Increases spacing and tap target sizing for the Reset Button */
+    .RestButton {
+        padding: 14px 36px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-radius: 40px;
+    }
+}
