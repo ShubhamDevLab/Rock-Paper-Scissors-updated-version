@@ -350,7 +350,7 @@ body {
     }
 
     .moveButton {
-        margin: 10px 0 !important;
+        margin: 5px 0 !important;
         gap: 10px !important;
     }
     
@@ -364,11 +364,11 @@ body {
     }
 
     .Rest {
-        margin: 10px 0 !important;
+        margin: 5px 0 !important;
     }
 
     .game-footer {
-        margin-top: 8px !important;
+        margin-top: 5px !important;
         padding: 5px 5px !important;
     }
 }
