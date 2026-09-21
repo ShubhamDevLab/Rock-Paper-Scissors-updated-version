@@ -301,6 +301,7 @@ body {
     body {
         padding: 10px 5px;
         min-height: 100vh;
+        max-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -320,7 +321,7 @@ body {
     .game-container {
         width: 94% !important;
         max-width: 100% !important;
-        padding: 12px 12px !important;
+        padding: 20px 12px !important;
         gap: 15px !important;
         margin: 0 auto !important;
     }
