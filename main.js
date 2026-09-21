@@ -17,8 +17,6 @@ const loseSound = new Audio('Audio/are-baap-re-yaad-aya.mp3')
 const winSound = new Audio('Audio/i-got-this-fahhhh.mp3')
 const tieSound = new Audio('Audio/is-ka-karan-narendar-modi.mp3')
 
-
-
 function RestButton()
 {
     Wins=0;
@@ -160,7 +158,7 @@ function startCountdownAnimation(str) {
         shakeSound.play().catch(e => console.log("Audio play deferred:", e));
     }
     myMoveContainer.innerHTML = `<img src="${moveImages.rock}" class="is-shaking" style ="transform: rotate(-30deg)" width="100">`;
-    compMoveContainer.innerHTML = `<img src="${moveImages.rock}" class="is-shaking" style = "transform: rotate(-10deg)" width="100">`;
+    compMoveContainer.innerHTML = `<img src="${moveImages.rock}" class="is-shaking" style = "transform: rotate(-150deg)" width="100">`;
 
     // Paper hits on the second downward stroke swing
     setTimeout(() => {
@@ -230,3 +228,22 @@ function toggleVolume() {
         button.className = "muted";
     }
 }
+function switchTheme(themeName) {
+    // Inject the theme tag attribute directly onto the body element
+    document.body.setAttribute('data-theme', themeName);
+    
+    // Optional: Save the user's preference to localStorage so it stays active when they refresh
+    localStorage.setItem('selectedRPSTheme', themeName);
+}
+
+// RUN ON LOAD: Check if the user had a saved theme from a previous visit
+window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('selectedRPSTheme');
+    if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+        
+        // Update the dropdown selector UI choice to match
+        const selectEl = document.getElementById('themeSelect');
+        if (selectEl) selectEl.value = savedTheme;
+    }
+});

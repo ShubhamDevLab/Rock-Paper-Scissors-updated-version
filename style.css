@@ -1,6 +1,37 @@
-/* --- Global Style --- */
+/* ==========================================
+   1. DEFINE THE THEME PALETTES 
+   ========================================== */
+
+/* DEFAULT THEME: Classic Light/Steel Blue */
+:root, body[data-theme="classic"] {
+    --bg-page: #dbe4ee;          /* Light steel blue */
+    --bg-board: darkcyan;        /* Green arena area */
+    --text-primary: #333333;     /* Core score text */
+    --text-board: #ffffff;       /* Result text color */
+    --bg-button: #ffffff;        /* White move backdrops */
+}
+
+/* THEME 2: Midnight Dark Mode */
+body[data-theme="dark"] {
+    --bg-page: #121214;          /* Deep rich grey */
+    --bg-board: #1e1e24;         /* Charcoal dark container */
+    --text-primary: #e4e4e7;     /* Soft white scores */
+    --text-board: #00f5d4;       /* Glowing Neon green result text */
+    --bg-button: #2a2a32;        /* Dark selection items */
+}
+/* THEME 3: Neon Cyberpunk / Arcade */
+body[data-theme="cyberpunk"] {
+    --bg-page: #240046;          /* Dark Arcade Purple */
+    --bg-board: #7b2cbf;         /* Electric Violet container */
+    --text-primary: #ff007f;     /* Hot neon pink text */
+    --text-board: #39ff14;       /* Neon Lime text */
+    --bg-button: #3c096c;        /* Deep purple buttons */
+}
+
 body {
-    background-color: #dbe4ee; /* A slightly cleaner, softer light steel blue */
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
@@ -14,6 +45,7 @@ body {
     text-transform: uppercase;
     text-shadow: 2px 2px 0px rgba(0, 76, 76, 0.2);
 }
+
 .text-rock{
     color:#d81B60;
 }
@@ -37,10 +69,10 @@ body {
 }
 
 .status {
+    color: var(--text-primary);
     text-align: center;
     font-size: large;
     font-weight: 600;
-    color: #333;
     margin-bottom: 20px;
 }
 
@@ -68,8 +100,9 @@ body {
 
 /* --- Green Game Board Area --- */
 .game-container {
-    background-color: darkcyan;
-    color: white;
+    background-color: var(--bg-board);
+    color: var(--text-board);
+    transition: background-color 0.3s ease;
     display: flex;
     padding: 3% 2%;
     flex-direction: column;
@@ -130,7 +163,7 @@ body {
 }
 
 .move {
-    background-color: white; /* Clean paper white backdrop for your hand emojis */
+    background-color: var(--bg-button);
     border: 3px solid transparent;
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -143,7 +176,7 @@ body {
 .move:hover {
     transform: translateY(-6px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background-color: #f7fafc;
+    background-color: var(--bg-button);
 }
 
 /* Press effect down when clicked */
