@@ -299,9 +299,8 @@ body {
    ========================================== */
 @media (max-width: 600px) {
     body {
-        padding: 5px 5px;
+        padding: 10px 5px;
         min-height: 100vh;
-        max-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -309,20 +308,20 @@ body {
     }
 
     .header-text {
-        font-size: 1.5rem !important;
-        margin: 2px 0 !important;
+        font-size: 1.7rem !important;
+        margin: 5px 0 !important;
     }
 
     .status {
-        font-size: 1.0rem !important;
-        margin-bottom: 5px !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 8px !important;
     }
 
     .game-container {
         width: 94% !important;
         max-width: 100% !important;
         padding: 12px 12px !important;
-        gap: 10px !important;
+        gap: 15px !important;
         margin: 0 auto !important;
     }
 
@@ -332,21 +331,21 @@ body {
     }
 
     .hands-display {
-        gap: 20px !important;
+        gap: 30px !important;
     }
 
     /* Scales down large icons to cleanly fit narrow mobile screens */
     #myMove img, #compMove img {
-        width: 75px !important;  
-        height: 75px !important;
+        width: 90px !important;  
+        height: 90px !important;
     }
 
     .vs-text {
-        font-size: 1.0rem !important;
+        font-size: 1.1rem !important;
     }
 
     .move-label {
-        font-size: 1.0rem !important;
+        font-size: 1.1rem !important;
         font-weight: 800;
     }
 
@@ -360,8 +359,8 @@ body {
     }
     
     .move img {
-        width: 60px !important;
-        height: 60px !important;
+        width: 58px !important;
+        height: 58px !important;
     }
 
     .Rest {
@@ -369,7 +368,7 @@ body {
     }
 
     .game-footer {
-        margin-top: 5px !important;
+        margin-top: 2px !important;
         padding: 5px 5px !important;
     }
 }
