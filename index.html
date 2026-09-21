@@ -3,14 +3,24 @@
 <head>
     <title>Game-RPS</title>
     <link rel="stylesheet" href="style.css">
-    <audio id="myAudio" src="Audio/shake.mp3" autoplay loop ></audio>
+    <audio id="myAudio" src="Audio/shake.mp3" ></audio>
 </head>
 <body>
     <div class="header-container">
-        <h1 class="header-text">Rock · Paper · <span class="text-primary">Scissors</span></h1>  
-        <button id="volumeToggle" class="unmuted-button" onclick="toggleVolume()">
+        <h1 class="header-text">Let's play <span class="text-rock">Rock</span> · <span class="text-paper">Paper</span>  · <span class="text-scissors">Scissors</span></h1>  
+        <button id="volumeToggle" class="muted" onclick="toggleVolume()">
         <span id="buttonText">Mute</span>
+        
         </button>
+         <!-- Put this right above or inside your header section -->
+        <div class="theme-selector-container" style="text-align: center; margin: 15px 0;">
+            <label for="themeSelect" style="font-weight: bold; margin-right: 8px;"></label>
+            <select id="themeSelect" onchange="switchTheme(this.value)" style="border-radius: 8px; font-weight: 600; cursor: pointer;">
+            <option value="classic">Classic Light</option>
+            <option value="dark">Midnight Dark</option>
+            <option value="cyberpunk">Cyberpunk Neon</option>
+            </select>
+        </div>
     </div>
     <div>
         <p class="status">

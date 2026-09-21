@@ -31,22 +31,27 @@ function RestButton()
 
 function UpdateStatus(myMove,compMove,result)
 {
-    shakeSound.pause();
-    if(result==='You win! 🎉')
+    const isMuted = document.getElementById("myAudio").muted;
+    if(!isMuted)
     {
-        winSound.play();
-        winSound.volume=0.2;
+        shakeSound.pause();
+        if(result==='You win! 🎉')
+        {
+            winSound.play();
+            winSound.volume=0.2;
+        }
+        else if(result==='You lose')
+        {
+            loseSound.play();
+            loseSound.volume=0.2;
+        }
+        else if(result==='It\'s a draw')
+        {
+            tieSound.play();
+            tieSound.volume=0.2;
+        }
     }
-    else if(result==='You lose')
-    {
-        loseSound.play();
-        loseSound.volume=0.2;
-    }
-    else if(result==='It\'s a draw')
-    {
-        tieSound.play();
-        tieSound.volume=0.2;
-    }
+    
     document.getElementById("var-Result").textContent = result; 
     document.getElementById("myMove").innerHTML = `<img src="${moveImages[myMove.toLowerCase()]}" style ="transform: rotate(-30deg)" width="100">`;
     document.getElementById("compMove").innerHTML = `<img src="${moveImages[compMove.toLowerCase()]}" style = "transform: rotate(-150deg)" width="100">`;
@@ -145,15 +150,17 @@ function startCountdownAnimation(str) {
     const resultLabel = document.getElementById("var-Result");
     const myMoveContainer = document.getElementById("myMove");
     const compMoveContainer = document.getElementById("compMove");
-
-    // Instant Start (0ms)
+    const isMuted = document.getElementById("myAudio").muted;
+    //Instant Start (0ms)
     resultLabel.textContent = "Rock...";
-    shakeSound.currentTime = 0;
-    shakeSound.volume = 0.3;
-    shakeSound.play().catch(e => console.log("Audio play deferred:", e));
-
-    myMoveContainer.innerHTML = `<img src="${moveImages.rock}" class="is-shaking" width="100">`;
-    compMoveContainer.innerHTML = `<img src="${moveImages.rock}" class="is-shaking" width="100">`;
+    if(!isMuted)
+    {
+        shakeSound.currentTime = 0;
+        shakeSound.volume = 0.3;
+        shakeSound.play().catch(e => console.log("Audio play deferred:", e));
+    }
+    myMoveContainer.innerHTML = `<img src="${moveImages.rock}" class="is-shaking" style ="transform: rotate(-30deg)" width="100">`;
+    compMoveContainer.innerHTML = `<img src="${moveImages.rock}" class="is-shaking" style = "transform: rotate(-10deg)" width="100">`;
 
     // Paper hits on the second downward stroke swing
     setTimeout(() => {
@@ -207,20 +214,19 @@ function ScissorsButton(str) {
 
 
 function toggleVolume() {
-  const audio = document.getElementById("myAudio");
-  const button = document.getElementById("volumeToggle");
-  const buttonText = document.getElementById("buttonText");
+    const audio = document.getElementById("myAudio");
+    const button = document.getElementById("volumeToggle");
+    const buttonText = document.getElementById("buttonText");
 
-  shakeSound.volume=0.001; 
-  // Toggle the muted state
-  audio.muted = !audio.muted;
+    // Toggle the primary audio element's muted state
+    audio.muted = !audio.muted;
 
-  // Update button appearance and icon based on state
-  if (audio.muted) {
-    buttonText.innerText = "Unmute";
-    button.className = "muted";
-  } else {
-    buttonText.innerText = "Mute";
-    button.className = "unmuted";
-  }
+    // Dynamically adjust the volume values of all game audio assets based on the state
+    if (audio.muted) {
+        buttonText.innerText = "Unmute";
+        button.className = "muted";
+    } else {
+        buttonText.innerText = "Mute";
+        button.className = "unmuted";
+    }
 }

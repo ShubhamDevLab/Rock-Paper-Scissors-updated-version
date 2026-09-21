@@ -5,7 +5,24 @@ body {
     margin: 0;
     padding: 0;
 }
-
+.header-container{
+    text-align: center;
+}
+.header-text{
+    text-align: center;
+    font-size:30px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px rgba(0, 76, 76, 0.2);
+}
+.text-rock{
+    color:#d81B60;
+}
+.text-paper{
+    color:#ffb300;
+}
+.text-scissors{
+    color:#00acc1;
+}
 /* --- Header Section --- */
 .header {
     text-align: center;
@@ -28,24 +45,26 @@ body {
 }
 
 /* --- Audio Mute Buttons --- */
-.unmuted-button, .muted {
+.unmuted, .muted {
+    color: white;
     border: none;
     padding: 6px 14px;
     border-radius: 20px;
     font-weight: bold;
     cursor: pointer;
-    margin-left: 20px;
+    transition: background-color 0.2s ease;
 }
 
-.unmuted-button {
+/* Green state when sound is playing */
+.unmuted {
     background-color: #4CAF50;
-    color: white;
 }
 
+/* Red state when sound is turned off */
 .muted {
     background-color: #f44336;
-    color: white;
 }
+
 
 /* --- Green Game Board Area --- */
 .game-container {
@@ -251,5 +270,12 @@ body {
         font-size: 1.1rem;
         font-weight: 700;
         border-radius: 40px;
+    }
+    .move-label {
+        font-size: 1.2rem !important; /* Increases the font size */
+        font-weight: 800;             /* Makes the letters thicker and bolder */
+        color: #ffffff;               /* Changes the color to bright white for high contrast */
+        letter-spacing: 1px;          /* Adds clean breathing room between the letters */
+        text-transform: uppercase;    /* Ensures they look clean and uniform */
     }
 }
