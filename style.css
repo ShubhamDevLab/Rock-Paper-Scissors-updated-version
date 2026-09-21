@@ -314,7 +314,7 @@ body {
 
     .status {
         font-size: 1.1rem !important;
-        margin-bottom: 12px !important;
+        margin-bottom: 8px !important;
     }
 
     .game-container {
@@ -350,12 +350,12 @@ body {
     }
 
     .moveButton {
-        margin: 15px 0 !important;
+        margin: 10px 0 !important;
         gap: 10px !important;
     }
     
     .move {
-        padding: 10px !important;
+        padding: 8px !important;
     }
     
     .move img {
