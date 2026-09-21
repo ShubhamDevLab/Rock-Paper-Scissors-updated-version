@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game-RPS</title>
+    <link rel="stylesheet" href="style.css">
+    <audio id="myAudio" src="Audio/shake.mp3" autoplay loop ></audio>
+</head>
+<body>
+    <div class="header-container">
+        <h1 class="header-text">Rock · Paper · <span class="text-primary">Scissors</span></h1>  
+        <button id="volumeToggle" class="unmuted-button" onclick="toggleVolume()">
+        <span id="buttonText">Mute</span>
+        </button>
+    </div>
+    <div>
+        <p class="status">
+        <strong>Wins: </strong><span id = "var-Wins">0</span> |
+        <strong> Losses: </strong><span id = "var-Losses">0</span>|
+        <strong> Ties: </strong><span id = "var-Ties">0</span>
+        </p>
+    </div>
+    <div class="game-container">
+        <div class="result-box">
+        <p class="Result-label"><span id = "var-Result">Make your move to throw</span></p>
+        </div>
+        <div class="hands-display">
+            <div class="move-container">
+            <div class="icon-result">
+                <span id = "myMove"><img src="Image/rock.png" width="80" style = "transform: rotate(-90deg)" ></span>
+            </div>
+            <p class="move-label">YOU</p>
+        </div>
+        <span class="vs-text">VS</span>
+        <div class="move-container">
+            <div class="icon-result">
+                <span id = "compMove"><img src="Image/rock.png" width="80" style = "transform: rotate(-90deg)"></span>
+            </div>
+            <p class="move-label">CPU</p>
+        </div>
+    </div>
+
+        </div>
+        
+    <div class="moveButton">
+        <button class=move onclick="RockButton('Rock')">
+            <img src="Image/rock.png" width="80">
+        </button>
+        <button class=move onclick="PaperButton('Paper')">
+            <img src="Image/paper.png" width="80">
+        </button>
+        <button class=move onclick="ScissorsButton('Scissors')">
+            <img src="Image/scissors.png" width="80">
+        </button>
+    </div>
+
+    <div class=Rest>
+    <button class=RestButton onclick="RestButton()">
+        Rest Score
+    </button>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
