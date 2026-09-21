@@ -1,8 +1,4 @@
-/* ==========================================
-   1. DEFINE THE THEME PALETTES 
-   ========================================== */
-
-/* DEFAULT THEME: Classic Light/Steel Blue */
+/* DEFAULT THEME: Classic Light */
 :root, body[data-theme="classic"] {
     --bg-page: #dbe4ee;          /* Light steel blue */
     --bg-board: darkcyan;        /* Green arena area */
@@ -11,7 +7,7 @@
     --bg-button: #ffffff;        /* White move backdrops */
 }
 
-/* THEME 2: Midnight Dark Mode */
+/* Midnight Dark Mode */
 body[data-theme="dark"] {
     --bg-page: #121214;          /* Deep rich grey */
     --bg-board: #1e1e24;         /* Charcoal dark container */
@@ -19,7 +15,7 @@ body[data-theme="dark"] {
     --text-board: #00f5d4;       /* Glowing Neon green result text */
     --bg-button: #2a2a32;        /* Dark selection items */
 }
-/* THEME 3: Neon Cyberpunk / Arcade */
+/* Neon Cyberpunk */
 body[data-theme="cyberpunk"] {
     --bg-page: #240046;          /* Dark Arcade Purple */
     --bg-board: #7b2cbf;         /* Electric Violet container */
@@ -245,70 +241,56 @@ body {
     88%      { transform: scale(1.15) translateY(-25px) rotate(-10deg); }
     100%     { transform: scale(1) translateY(0) rotate(-20deg); }
 }
-/* --- Mobile View Enhancements --- */
-@media (max-width: 600px) {
-    /* 1. Scales up the primary headline text size */
-    .header {
-        font-size: xx-large;
-        font-weight: 800;
-        padding: 25px 10px;
-        margin-bottom: 20px;
-    }
-
-    /* 2. Forces the scorecard font to be bold and pronounced */
-    .status {
-        font-size: 1.3rem;
-        font-weight: 800;
-        margin-bottom: 25px;
-    }
-
-    /* 3. Stretches the green arena container to fill the screen width */
-    .game-container {
-        max-width: 100%;
-        width: 92%; /* Adds a small neat gap on the left and right edges */
-        padding: 6% 4%;
-        border-radius: 20px; /* Softer, more modern rounded corners */
-        gap: 30px;
-    }
-
-    /* 4. Scales up the 'It's a draw / You win' text */
-    .Result-label {
-        font-size: 2rem;
-    }
-
-    /* 5. Widens the gap between the hands display and scales up the hand circle graphics */
-    .hands-display {
-        gap: 50px;
-    }
-
-    /* Target your circular hand elements to look bigger on mobile screens */
-    #myMove img, #compMove img {
-        width: 130px !important;  /* Enlarges the hand emojis to match the screenshot layout */
-        height: 130px !important;
-    }
-
-    /* 6. Makes the clickable choice buttons larger and easier to tap with fingers */
-    .move {
-        padding: 15px;
-    }
-    
-    .move img {
-        width: 60px !important;
-        height: 60px !important;
-    }
-
-    /* 7. Increases spacing and tap target sizing for the Reset Button */
-    .RestButton {
-        padding: 14px 36px;
-        font-size: 1.1rem;
-        font-weight: 700;
-        border-radius: 40px;
-    }
-    .move-label {
-        font-size: 1.2rem !important; /* Increases the font size */
-        font-weight: 800;             /* Makes the letters thicker and bolder */
-        color: #ffffff;               /* Changes the color to bright white for high contrast */
-        letter-spacing: 1px;          /* Adds clean breathing room between the letters */
-        text-transform: uppercase;    /* Ensures they look clean and uniform */
-    }
+/* --- Modern Multi-Link Footer --- */
+.game-footer {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #4a5568; /* Slate gray text */
+    margin-top: 50px;
+    padding: 24px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
+
+.game-footer p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.game-footer .dev-name {
+    color: #1a202c;
+    font-weight: 700;
+}
+
+/* Horizontal Link Container */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Prevents overflow layouts on small mobile phones */
+}
+
+/* Base style for all social links */
+.social-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s ease;
+}
+
+/* Brand Theme Accent Shifting on Hover */
+.social-link.github { color: #24292e; border: 1px solid #24292e; }
+.social-link.github:hover { background-color: #24292e; color: white; }
+
+.social-link.linkedin { color: #0077b5; border: 1px solid #0077b5; }
+.social-link.linkedin:hover { background-color: #0077b5; color: white; }
+
+.social-link.instagram { color: #e1306c; border: 1px solid #e1306c; }
+.social-link.instagram:hover { background-color: #e1306c; color: white; }
