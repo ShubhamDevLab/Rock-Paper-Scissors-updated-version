@@ -224,9 +224,9 @@ function toggleVolume() {
     // Dynamically adjust the volume values of all game audio assets based on the state
     if (audio.muted) {
         buttonText.innerText = "Unmute";
-        button.className = "muted";
+        button.className = "unmuted";
     } else {
         buttonText.innerText = "Mute";
-        button.className = "unmuted";
+        button.className = "muted";
     }
 }
