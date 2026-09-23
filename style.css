@@ -294,82 +294,82 @@ body {
 
 .social-link.instagram { color: #e1306c; border: 1px solid #e1306c; }
 .social-link.instagram:hover { background-color: #e1306c; color: white; }
-/* ========================================== 6. PRODUCTION MOBILE VIEWER FIT (MAX-WIDTH: 600PX) ========================================== */ 
-@media (max-width: 600px) { 
-  body { 
-    padding: 10px 5px; 
-    height: 100vh; /* Changed from min/max height to strict height */
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between; 
-    box-sizing: border-box; 
-  }  
+/* ==========================================
+   6. PRODUCTION MOBILE VIEWER FIT (MAX-WIDTH: 600PX)
+   ========================================== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px 5px;
+        min-height: 100vh;
+        max-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
 
-  .header-text { 
-    font-size: 1.4rem !important; /* Shrunk slightly to save vertical space */
-    margin: 2px 0 !important; 
-  }  
+    .header-text {
+        font-size: 1.7rem !important;
+        margin: 5px 0 !important;
+    }
 
-  .status { 
-    font-size: 1.0rem !important; 
-    margin-bottom: 4px !important; 
-  }  
+    .status {
+        font-size: 1.1rem !important;
+        margin-bottom: 8px !important;
+    }
 
-  .game-container { 
-    width: 94% !important; 
-    max-width: 100% !important; 
-    padding: 12px 12px !important; /* Reduced top/bottom padding */
-    gap: 10px !important; /* Reduced internal gaps */
-    margin: 0 auto !important; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }  
+    .game-container {
+        width: 94% !important;
+        max-width: 100% !important;
+        padding: 20px 12px !important;
+        gap: 15px !important;
+        margin: 0 auto !important;
+    }
 
-  .Result-label { 
-    font-size: 1.3rem !important; 
-    margin-bottom: 0px !important; 
-  }  
+    .Result-label {
+        font-size: 1.5rem !important;
+        margin-bottom: 0px !important;
+    }
 
-  .hands-display { 
-    gap: 20px !important; /* Reduced spacing between hands */
-  }  
+    .hands-display {
+        gap: 30px !important;
+    }
 
-  /* Scales down large icons to cleanly fit narrow mobile screens */ 
-  #myMove img, #compMove img { 
-    width: 75px !important;  /* Reduced image sizes to pull footer up */
-    height: 75px !important; 
-  }  
+    /* Scales down large icons to cleanly fit narrow mobile screens */
+    #myMove img, #compMove img {
+        width: 90px !important;  
+        height: 90px !important;
+    }
 
-  .vs-text { 
-    font-size: 1.0rem !important; 
-  }  
+    .vs-text {
+        font-size: 1.1rem !important;
+    }
 
-  .move-label { 
-    font-size: 1.0rem !important; 
-    font-weight: 800; 
-  }  
+    .move-label {
+        font-size: 1.1rem !important;
+        font-weight: 800;
+    }
 
-  .moveButton { 
-    margin: 2px 0 !important; 
-    gap: 8px !important; 
-  }  
+    .moveButton {
+        margin: 5px 0 !important;
+        gap: 10px !important;
+    }
+    
+    .move {
+        padding: 8px !important;
+    }
+    
+    .move img {
+        width: 58px !important;
+        height: 58px !important;
+    }
 
-  .move { 
-    padding: 6px !important; 
-  }  
+    .Rest {
+        margin: 5px 0 !important;
+    }
 
-  .move img { 
-    width: 48px !important; /* Reduced individual choice button sizes */
-    height: 48px !important; 
-  }  
-
-  .Rest { 
-    margin: 2px 0 !important; 
-  }  
-
-  .game-footer { 
-    padding: 5px 5px !important; 
-  } 
+    .game-footer {
+        margin-top: 2px !important;
+        padding: 5px 5px !important;
+    }
 }
-
