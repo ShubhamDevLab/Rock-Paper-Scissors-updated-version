@@ -1,7 +1,17 @@
 let computerMove;
-let Wins = 0;
-let Losses = 0;
-let Ties = 0;
+
+let score=JSON.parse(localStorage.getItem('rpsScore'))||{
+    Wins: 0,
+    Losses:0,
+    Ties:0
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("var-Ties").textContent = score.Ties;
+    document.getElementById("var-Wins").textContent = score.Wins;
+    document.getElementById("var-Losses").textContent = score.Losses;
+});
+
 let result;
 
 
@@ -19,12 +29,13 @@ const tieSound = new Audio('Audio/is-ka-karan-narendar-modi.mp3')
 
 function RestButton()
 {
-    Wins=0;
-    Losses=0;
-    Ties=0;
-    document.getElementById("var-Ties").textContent = Ties;
-    document.getElementById("var-Wins").textContent = Wins;
-    document.getElementById("var-Losses").textContent = Losses;
+    score.Wins=0;
+    score.Losses=0;
+    score.Ties=0;
+    localStorage.removeItem('rpsScore')
+    document.getElementById("var-Ties").textContent = score.Ties;
+    document.getElementById("var-Wins").textContent = score.Wins;
+    document.getElementById("var-Losses").textContent = score.Losses;
 }
 
 function UpdateStatus(myMove,compMove,result)
@@ -81,64 +92,73 @@ function CheckCondition(comMove, myMove)
     if(comMove==='Rock' && myMove==='Rock')
     {
         console.log("Tie");
-        Ties++;
-        document.getElementById("var-Ties").textContent = Ties;   
+        score.Ties++;
+        document.getElementById("var-Ties").textContent = score.Ties;
+        localStorage.setItem('rpsScore', JSON.stringify(score));   
         return 'It\'s a draw';
     }
     else if(comMove==='Rock' && myMove==='Paper')
     {
         console.log('You win!');
-        Wins++;
-        document.getElementById("var-Wins").textContent = Wins;
+        score.Wins++;
+        document.getElementById("var-Wins").textContent = score.Wins;
+        localStorage.setItem('rpsScore', JSON.stringify(score));   
         return 'You win! 🎉';
     }
     else if(comMove==='Rock' && myMove==='Scissors')
     {
         console.log('You lose!');
-        Losses++;
-        document.getElementById("var-Losses").textContent = Losses;
+        score.Losses++;
+        document.getElementById("var-Losses").textContent = score.Losses;
+        localStorage.setItem('rpsScore', JSON.stringify(score));   
         return 'You lose';
     }
     else if(comMove==='Paper' && myMove==='Paper')
     {
         console.log("Tie");
-        Ties++;
-        document.getElementById("var-Ties").textContent = Ties;   
+        score.Ties++;
+        document.getElementById("var-Ties").textContent = score.Ties;  
+        localStorage.setItem('rpsScore', JSON.stringify(score));    
         return 'It\'s a draw';
     }
     else if(comMove==='Paper' && myMove==='Scissors')
     {
         console.log('You win!');
-        Wins++;
-        document.getElementById("var-Wins").textContent = Wins;
+        score.Wins++;
+        document.getElementById("var-Wins").textContent = score.Wins;
+        localStorage.setItem('rpsScore', JSON.stringify(score));   
         return 'You win! 🎉';
     }
      else if(comMove==='Paper' && myMove==='Rock')
     {
         console.log('You lose!');
-        Losses++;
-        document.getElementById("var-Losses").textContent = Losses;
+        score.Losses++;
+        document.getElementById("var-Losses").textContent = score.Losses;
+        localStorage.setItem('rpsScore', JSON.stringify(score));   
         return 'You lose';
     }
     else if(comMove==='Scissors' && myMove==='Scissors')
     {
         console.log("Tie");
-        Ties++;
-        document.getElementById("var-Ties").textContent = Ties;   
+        score.Ties++;
+        document.getElementById("var-Ties").textContent = score.Ties; 
+        localStorage.setItem('rpsScore', JSON.stringify(score));     
         return 'It\'s a draw';
     }
     else if(comMove==='Scissors' && myMove==='Rock')
     {
         console.log('You win!');
-        Wins++;
-        document.getElementById("var-Wins").textContent = Wins;
+        score.Wins++;
+        document.getElementById("var-Wins").textContent = score.Wins;
+        localStorage.setItem('rpsScore', JSON.stringify(score));   
         return 'You win! 🎉';
     }
     else if(comMove==='Scissors' && myMove==='Paper')
     {
         console.log('You lose!');
-        Losses++;
-        document.getElementById("var-Losses").textContent = Losses;
+        score.Losses++;
+        document.getElementById("var-Losses").textContent = score.Losses;
+        localStorage.setItem('rpsScore', JSON.stringify(score));   
         return 'You lose';
     }
 }
