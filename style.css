@@ -299,7 +299,6 @@ body {
   body { 
     padding: 10px 5px; 
     height: 100vh; /* Changed from min/max height to strict height */
-    overflow: hidden; /* Prevents unwanted scrolling */
     display: flex; 
     flex-direction: column; 
     justify-content: space-between; 
@@ -322,7 +321,6 @@ body {
     padding: 12px 12px !important; /* Reduced top/bottom padding */
     gap: 10px !important; /* Reduced internal gaps */
     margin: 0 auto !important; 
-    flex: 1; /* Allows container to scale dynamically inside the screen */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -371,7 +369,6 @@ body {
   }  
 
   .game-footer { 
-    margin-top: auto !important; /* Forces footer to stay at the very bottom */
     padding: 5px 5px !important; 
   } 
 }
