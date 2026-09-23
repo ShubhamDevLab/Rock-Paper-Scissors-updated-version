@@ -23,6 +23,50 @@ body[data-theme="cyberpunk"] {
     --text-board: #39ff14;       /* Neon Lime text */
     --bg-button: #3c096c;        /* Deep purple buttons */
 }
+/* Retro 80s Arcade */
+body[data-theme="arcade"] {
+    --bg-page: #0f051d;          /* Deep synthwave space */
+    --bg-board: #ff0055;         /* Radical neon magenta arena */
+    --text-primary: #00ffff;     /* Electric cyan scores */
+    --text-board: #ffff00;       /* Retro arcade yellow text */
+    --bg-button: #241147;        /* Retro arcade console button dark purple */
+}
+
+/* Solarized Matrix */
+body[data-theme="matrix"] {
+    --bg-page: #020202;          /* Terminal black */
+    --bg-board: #0d2611;         /* Deep digital green enclosure */
+    --text-primary: #00ff41;     /* Matrix code green scores */
+    --text-board: #ffffff;       /* Pure white crisp text */
+    --bg-button: #16381b;        /* Operator dark green buttons */
+}
+
+/* Crimson Vampire */
+body[data-theme="vampire"] {
+    --bg-page: #1a0f0f;          /* Dark gothic obsidian */
+    --bg-board: #800808;         /* Deep velvet crimson arena */
+    --text-primary: #d9c5c5;     /* Ashen grey scores */
+    --text-board: #ffd700;       /* Royal gold victory text */
+    --bg-button: #2d1919;        /* Bat-wing dark ash buttons */
+}
+
+/* Deep Ocean Abyss */
+body[data-theme="abyss"] {
+    --bg-page: #011627;          /* Midnight ocean floor navy */
+    --bg-board: #00b4d8;         /* Bioluminescent aqua zone */
+    --text-primary: #e0f1f4;     /* Pale sea-foam scores */
+    --text-board: #ff9f1c;       /* Coral orange pop result text */
+    --bg-button: #0b3c5d;        /* Deep sea sub-surface blue */
+}
+
+/* Sunset Desert Dunes */
+body[data-theme="desert"] {
+    --bg-page: #2b1b17;          /* Twilight horizon dark brown */
+    --bg-board: #e07a5f;         /* Warm terracotta sand arena */
+    --text-primary: #f4f1de;     /* Pale parchment clean scores */
+    --text-board: #f2cc8f;       /* Golden hour glowing yellow text */
+    --bg-button: #3d405b;        /* Cool desert night shade slate blue */
+}
 
 body {
     background-color: var(--bg-page);
@@ -284,6 +328,43 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: all 0.25s ease;
 }
+/* Container must be relative so particles stay inside the board zone */
+.game-container {
+    position: relative;
+    overflow: hidden; /* Keeps the explosions strictly within the arena bounds */
+}
+
+.game-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Firecracker Particle Base */
+.firecracker-particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%); /* Keeps origin point centered */
+    animation: fireworkSpark 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes fireworkSpark {
+    0% {
+        transform: translate(-50%, -50__) scale(1);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        /* Vector translation path + downward gravity shift simulation */
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty) + 40px)) scale(0);
+        opacity: 0;
+    }
+}
+
+
 
 /* Brand Theme Accent Shifting on Hover */
 .social-link.github { color: #24292e; border: 1px solid #24292e; }

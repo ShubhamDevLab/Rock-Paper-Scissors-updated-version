@@ -46,6 +46,7 @@ function UpdateStatus(myMove,compMove,result)
         shakeSound.pause();
         if(result==='You win! 🎉')
         {
+            triggerMassiveFirecrackers();
             winSound.play();
             winSound.volume=0.2;
         }
@@ -267,3 +268,66 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selectEl) selectEl.value = savedTheme;
     }
 });
+function triggerMassiveFirecrackers() {
+    const container = document.querySelector('.game-container');
+    if (!container) return;
+
+    // 3 distinct explosion locations across the board width (Left, Center, Right)
+    const burstLocations = [
+        { x: '25%', y: '40%' },
+        { x: '50%', y: '30%' },
+        { x: '75%', y: '40%' }
+    ];
+
+    // Array of vibrant fallback neon spark highlights
+    const neonColors = ['#ff007f', '#00ffff', '#39ff14', '#ffff00', '#ffb703', '#ffffff'];
+
+    burstLocations.forEach((location, index) => {
+        // Stagger each explosion slightly to create a chain reaction effect
+        setTimeout(() => {
+            createSingleBurst(container, location.x, location.y, neonColors);
+        }, index * 200); // 200ms delay between bursts
+    });
+}
+
+function createSingleBurst(container, startX, startY, colors) {
+    const particleCount = 40; // Increased to 40 per burst (120 total!)
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('firecracker-particle');
+        
+        // Pin the individual burst spawn coordinates
+        particle.style.left = startX;
+        particle.style.top = startY;
+        
+        // Physics logic: Full 360 radial direction dispersion
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = Math.random() * 160 + 60; // Pushes sparks further out (60px to 220px)
+        
+        const tx = Math.cos(angle) * velocity + 'px';
+        const ty = Math.sin(angle) * velocity + 'px';
+        
+        // Inject physical paths into CSS properties
+        particle.style.setProperty('--tx', tx);
+        particle.style.setProperty('--ty', ty);
+        
+        // Appearance layout parameters
+        const size = Math.random() * 6 + 3; // Mixed sizes for cinematic depth
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        // Color mapping: 50% match the current active theme color text, 50% pick wild neon accents
+        const targetColor = Math.random() > 0.5 ? 'var(--text-board)' : colors[Math.floor(Math.random() * colors.length)];
+        particle.style.backgroundColor = targetColor;
+        particle.style.boxShadow = `0 0 10px ${targetColor}, 0 0 20px ${targetColor}`;
+
+        container.appendChild(particle);
+        
+        // Safely garbage collect the DOM node post-animation
+        setTimeout(() => {
+            particle.remove();
+        }, 1200);
+    }
+}
+
